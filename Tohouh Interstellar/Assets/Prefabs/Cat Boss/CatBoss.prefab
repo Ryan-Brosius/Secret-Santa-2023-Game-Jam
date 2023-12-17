@@ -119,12 +119,23 @@ MonoBehaviour:
   phase2Spawners:
   - {fileID: 4482723243042686993, guid: 7397b113479d4c3469486b8248789860, type: 3}
   phase2SpinningSpawners:
-  - {fileID: 2603800471147297410, guid: 6649824ecd6a51443bc45ef6e42fc981, type: 3}
-  - {fileID: 7221545972343875267, guid: a9ad578623e8a7943ae2a2dcbb1d345b, type: 3}
+  - {fileID: 2603800471147297410, guid: 370b9c52e346c8e4a8e59f6b9fb56fb3, type: 3}
+  - {fileID: 7221545972343875267, guid: 2804dd7e05744ba4e835368e588fdb21, type: 3}
+  phase3Spawners:
+  - {fileID: 3406866660310904028, guid: b27cc0aa681fb5741b301c38fd339a94, type: 3}
+  - {fileID: 715222620919202032, guid: 70807584eeb430c46bd60e08c32c0795, type: 3}
+  - {fileID: 6307775069940575464, guid: b4d4e8aa7ccf16e4ebfb18f4e61d35fe, type: 3}
+  phase4Spawners:
+  - {fileID: 7411120267964045649, guid: 11d9ef17be6c1d141a3b370068fe3901, type: 3}
+  - {fileID: 1901320663679697790, guid: 371de1087f14ea44fbbb10f715e0553c, type: 3}
+  - {fileID: 144927107410798985, guid: 5d3c232731c15e1428e587612fa3825b, type: 3}
+  - {fileID: 3312073711459772912, guid: 39aa93e2804ed0145b3c9b06d83bbacd, type: 3}
   rotationSpeed: 4
   triangle1: {fileID: 2173267571074448828, guid: 8bb6d56e921a8134a93c98638e5d3e79, type: 3}
   triangle2: {fileID: 309299450094620320, guid: 31d58017d3f745147a5f71d51a1073bb, type: 3}
   attackTimer: 10
+  phase: 0
+  previousPhase: 0
 --- !u!114 &493111578753448205
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,6 +152,7 @@ MonoBehaviour:
   colorTickTime: 0.1
   tickColor: {r: 0.70980394, g: 0.25490198, b: 0.19215687, a: 1}
   canTakeDamage: 1
+  canDie: 1
 --- !u!60 &713166383301898352
 PolygonCollider2D:
   m_ObjectHideFlags: 0

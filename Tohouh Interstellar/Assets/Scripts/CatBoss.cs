@@ -69,14 +69,14 @@ public class CatBoss : MonoBehaviour
         }
         phase2SpinningSpawners = newphase2SpinningSpawners;
 
-        instantiateSpawners(phase3Spawners);
+        phase3Spawners = instantiateSpawners(phase3Spawners);
 
-        instantiateSpawners(phase4Spawners);
+        phase4Spawners = instantiateSpawners(phase4Spawners);
 
         SpawnEyes();
     }
 
-    void instantiateSpawners(List<GameObject> spawners)
+    List<GameObject> instantiateSpawners(List<GameObject> spawners)
     {
         List<GameObject> clonedSpawners = new List<GameObject>();
         foreach (GameObject spawner in spawners)
@@ -85,7 +85,7 @@ public class CatBoss : MonoBehaviour
             sp.transform.parent = gameObject.transform;
             clonedSpawners.Add(sp);
         }
-        phase3Spawners = clonedSpawners;
+        return clonedSpawners;
     }
 
     void SpawnEyes()

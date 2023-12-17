@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7221545972343875267
+--- !u!1 &4531227052279895976
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,48 +8,49 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4407218506203435457}
-  - component: {fileID: 2412349135349762963}
+  - component: {fileID: 2217864838795608242}
+  - component: {fileID: 6577460062680873987}
   m_Layer: 0
-  m_Name: BulletSpawnerSpinPhase2 (1)
+  m_Name: Phase 4 Spawner 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4407218506203435457
+--- !u!4 &2217864838795608242
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7221545972343875267}
+  m_GameObject: {fileID: 4531227052279895976}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.005636096, y: 1.274, z: -0.077230744}
+  m_LocalPosition: {x: 0, y: 1.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2412349135349762963
+--- !u!114 &6577460062680873987
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7221545972343875267}
+  m_GameObject: {fileID: 4531227052279895976}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8c962cb2fa2e92042b0c9d816e5acde3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 1040614389382490475, guid: a8e3d50f61fd121469c5139927191aa5, type: 3}
-  firingRate: 0.15
-  bulletsPerSpawn: 4
-  rotation: 0.4
-  bulletSpeed: 0.3
-  isOn: 0
+  bullet: {fileID: 4445659291676619767, guid: a3916a360082551468e59139c2361382, type: 3}
+  firingRate: 0.25
+  bulletsPerSpawn: 14
+  rotation: -0.1
+  bulletSpeed: 0.7
+  isOn: 1
   oscillateFiringRateBool: 0
   oscilationRange: {x: 0, y: 0.1}
-  oscilateFrequency: 1
+  oscilateFrequency: 3
+  startingRotation: 0

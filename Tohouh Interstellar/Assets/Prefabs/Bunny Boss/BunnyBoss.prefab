@@ -102,6 +102,8 @@ MonoBehaviour:
   totalHealth: 550
   colorTickTime: 0.1
   tickColor: {r: 0.8773585, g: 0.15312389, b: 0.15312389, a: 1}
+  canTakeDamage: 1
+  canDie: 1
 --- !u!60 &6169361319940153783
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -178,6 +180,10 @@ MonoBehaviour:
   phase1Spawners:
   - {fileID: 3499304331688955117, guid: 6b2323d783aa9c24abfca2a190833da8, type: 3}
   - {fileID: 1957756432398924848, guid: 0f95cdf5df1cee846904e0be03e7310c, type: 3}
+  phase2Spawners:
+  - {fileID: 0}
+  - {fileID: 0}
   bombPrefab: {fileID: 7985575247610399398, guid: 484ddf36594bfa54c9c8757e72eeedfd, type: 3}
   timeBetweenBombSpawns: 5
   phase: 1
+  previousPhase: 0
