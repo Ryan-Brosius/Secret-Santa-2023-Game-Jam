@@ -53,6 +53,7 @@ public class BulletSpawner : MonoBehaviour
         {
             float angle = i * 360 / bulletsPerSpawn;
             GameObject spawnedBullet = Instantiate(bullet, transform.position, Quaternion.identity);
+            spawnedBullet.tag = "Bullet";
             spawnedBullet.transform.rotation = transform.rotation;
             spawnedBullet.transform.Rotate(0, 0, angle);
             spawnedBullet.GetComponent<EnemyBullet>().speed = bulletSpeed;

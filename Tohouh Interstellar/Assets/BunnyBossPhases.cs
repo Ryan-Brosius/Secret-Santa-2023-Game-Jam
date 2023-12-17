@@ -173,6 +173,7 @@ public class BunnyBossPhases : MonoBehaviour
     {
         float angleRange = Random.Range(-80, -45);
         GameObject bomb = Instantiate(bombPrefab, transform.position, Quaternion.identity);
+        bomb.tag = "Bullet";
         bomb.transform.Rotate(0, 0, angleRange);
 
         bomb = Instantiate(bombPrefab, transform.position, Quaternion.identity);

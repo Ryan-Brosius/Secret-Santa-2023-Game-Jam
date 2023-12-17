@@ -6,6 +6,7 @@ public class EnemyBullet : MonoBehaviour
 {
     public float speed;
     public bool bounceOffWalls = false;
+    
 
     private void Update()
     {
