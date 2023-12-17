@@ -9,6 +9,8 @@ public class EnemyHealth : MonoBehaviour
     public float colorTickTime = 0.1f;
     public Color tickColor;
     private float currentHealth;
+    public bool canTakeDamage = true;
+    public bool canDie = true;
 
     private void Start()
     {
@@ -17,14 +19,21 @@ public class EnemyHealth : MonoBehaviour
 
     public void damageEnemy(float dmg)
     {
-        currentHealth -= dmg;
-
-        if (currentHealth <= 0)
+        if (canTakeDamage)
         {
-            Destroy(gameObject);
-        }
+            currentHealth -= dmg;
 
-        StartCoroutine(damageTick());
+            if (currentHealth <= 0)
+            {
+                currentHealth = 0;
+                if (canDie)
+                {
+                    Destroy(gameObject);
+                }
+            }
+
+            StartCoroutine(damageTick());
+        }
     }
 
     IEnumerator damageTick()
@@ -45,5 +54,15 @@ public class EnemyHealth : MonoBehaviour
     public float damageTaken()
     {
         return totalHealth - currentHealth;
+    }
+
+    public void restoreAllHealth()
+    {
+        currentHealth = totalHealth;
+    }
+
+    public bool isDead()
+    {
+        return currentHealth <= 0;
     }
 }

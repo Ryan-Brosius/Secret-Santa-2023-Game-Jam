@@ -14,6 +14,9 @@ public class BunnyBossPhases : MonoBehaviour
         phase2
     }
     public Phase phase = Phase.phase2;
+    public Phase previousPhase = Phase.phase1;
+    private float phaseCooldown = 5f;
+    private float phaseTimer = 0f;
 
     private bool throwBombsBool = true;
 
@@ -40,8 +43,18 @@ public class BunnyBossPhases : MonoBehaviour
     {
         determinePhase();
 
-        Phase1();
-        Phase2();
+        if (phase != previousPhase)
+        {
+            turnOffAllSpawners();
+            phaseTimer += Time.deltaTime;
+            if (phaseTimer >= phaseCooldown)
+                previousPhase = phase;
+        }
+        else
+        {
+            Phase1();
+            Phase2();
+        }
     }
 
     void determinePhase()
@@ -113,5 +126,10 @@ public class BunnyBossPhases : MonoBehaviour
         {
             s.GetComponent<BulletSpawner>().isOn = false;
         }
+    }
+
+    void turnOffAllSpawners()
+    {
+        turnOffSpawners(phase1Spawners);
     }
 }

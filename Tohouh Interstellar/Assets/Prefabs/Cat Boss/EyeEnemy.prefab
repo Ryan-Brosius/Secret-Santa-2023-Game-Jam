@@ -158,9 +158,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71aaec3183f44414aadf79be9a1822dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalHealth: 50
+  totalHealth: 10
   colorTickTime: 0.1
   tickColor: {r: 0.70980394, g: 0.25490198, b: 0.19215687, a: 1}
+  canTakeDamage: 1
+  canDie: 1
 --- !u!114 &739832153455942825
 MonoBehaviour:
   m_ObjectHideFlags: 0

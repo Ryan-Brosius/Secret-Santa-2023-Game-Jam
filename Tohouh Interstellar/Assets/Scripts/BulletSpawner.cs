@@ -15,6 +15,7 @@ public class BulletSpawner : MonoBehaviour
     private float oscillationTimer = 0f;
     public Vector2 oscilationRange = new Vector2(0f, 0.1f);
     public float oscilateFrequency = 1f;
+    public float startingRotation = 0f;
 
     private float timer;
 
@@ -22,6 +23,7 @@ public class BulletSpawner : MonoBehaviour
     private void Start()
     {
         originalFiringRate = firingRate;
+        transform.eulerAngles = new Vector3(0f, 0f, startingRotation);
     }
 
     private void Update()
