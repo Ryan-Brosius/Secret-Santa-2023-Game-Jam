@@ -9,6 +9,7 @@ public class BunnyBossPhases : MonoBehaviour
     public List<GameObject> phase3Spawners = new List<GameObject>();
     public List<GameObject> phase4Spawners = new List<GameObject>();
     public GameObject bombPrefab;
+    private float bombTimer = 0f;
     public float timeBetweenBombSpawns = 1f;
     public enum Phase
     {
@@ -172,7 +173,6 @@ public class BunnyBossPhases : MonoBehaviour
     {
         float angleRange = Random.Range(-80, -45);
         GameObject bomb = Instantiate(bombPrefab, transform.position, Quaternion.identity);
-        bomb.tag = "Bullet";
         bomb.transform.Rotate(0, 0, angleRange);
 
         bomb = Instantiate(bombPrefab, transform.position, Quaternion.identity);
