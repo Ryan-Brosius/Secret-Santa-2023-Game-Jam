@@ -9,8 +9,8 @@ public class BunnyBossPhases : MonoBehaviour
     public List<GameObject> phase3Spawners = new List<GameObject>();
     public List<GameObject> phase4Spawners = new List<GameObject>();
     public GameObject bombPrefab;
-    private float bombTimer = 0f;
     public float timeBetweenBombSpawns = 1f;
+    private float bombTimer = 0f;
     public enum Phase
     {
         phase1,
