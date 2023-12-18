@@ -18,7 +18,7 @@ public class BunnyBossPhases : MonoBehaviour
         phase3,
         phase4
     }
-    public Phase phase = Phase.phase2;
+    public Phase phase = Phase.phase1;
     public Phase previousPhase = Phase.phase1;
     private float phaseCooldown = 5f;
     private float phaseTimer = 0f;

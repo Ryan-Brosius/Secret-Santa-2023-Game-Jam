@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71aaec3183f44414aadf79be9a1822dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalHealth: 550
+  totalHealth: 200
   colorTickTime: 0.1
   tickColor: {r: 0.8773585, g: 0.15312389, b: 0.15312389, a: 1}
   canTakeDamage: 1
@@ -181,9 +181,15 @@ MonoBehaviour:
   - {fileID: 3499304331688955117, guid: 6b2323d783aa9c24abfca2a190833da8, type: 3}
   - {fileID: 1957756432398924848, guid: 0f95cdf5df1cee846904e0be03e7310c, type: 3}
   phase2Spawners:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 7388966143598172699, guid: 887fed9d555808640bbfc61e9f70d053, type: 3}
+  phase3Spawners:
+  - {fileID: 6494525328967583299, guid: 0a1c08e29d201424798ca445d62f5685, type: 3}
+  - {fileID: 358968167203091368, guid: eae868917067f8a4ab031966690534a6, type: 3}
+  phase4Spawners:
+  - {fileID: 125409071624461706, guid: c30edc758fb916e488890a7380159059, type: 3}
+  - {fileID: 2996802790018887122, guid: aa9f6928abcad154d9583999782c9027, type: 3}
+  - {fileID: 4531227052279895976, guid: 2791a103ece56dc4aac01e15a9ee6128, type: 3}
   bombPrefab: {fileID: 7985575247610399398, guid: 484ddf36594bfa54c9c8757e72eeedfd, type: 3}
   timeBetweenBombSpawns: 5
-  phase: 1
+  phase: 0
   previousPhase: 0

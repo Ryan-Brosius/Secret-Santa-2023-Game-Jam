@@ -16,9 +16,11 @@ public class EnemyBullet : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.CompareTag("Border")){
+
             if (bounceOffWalls == false)
             {
-                Destroy(gameObject);
+                //Destroy(gameObject);
+                return;
             }
 
             //Bounces object if touches the border
