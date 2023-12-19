@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyHealth : MonoBehaviour
 {
@@ -11,10 +12,21 @@ public class EnemyHealth : MonoBehaviour
     private float currentHealth;
     public bool canTakeDamage = true;
     public bool canDie = true;
+    public GameObject healthBarUI;
+    public Slider slider;
+    public float test;
+    private float healthbarHealth;
+    private float healthbarPercentage;
+
 
     private void Start()
     {
         currentHealth = totalHealth;
+        healthbarHealth = currentHealth;
+        healthbarPercentage = currentHealth / totalHealth;
+        slider.value = HealthPercentage();
+        healthBarUI.SetActive(true);
+        StartCoroutine(healthbarTick());
     }
 
     public void damageEnemy(float dmg)
@@ -33,6 +45,19 @@ public class EnemyHealth : MonoBehaviour
             }
 
             StartCoroutine(damageTick());
+            slider.value = healthbarPercentage;
+        }
+    }
+
+    IEnumerator healthbarTick()
+    {
+        while (true)
+        {
+            float difference = currentHealth - healthbarHealth;
+            difference = Mathf.Clamp(difference, .5f, -.5f); ;
+            healthbarHealth -= difference;
+            healthbarPercentage = healthbarHealth / totalHealth;
+            yield return new WaitForSeconds(0.01f);
         }
     }
 
@@ -59,7 +84,7 @@ public class EnemyHealth : MonoBehaviour
     public void restoreAllHealth()
     {
         currentHealth = totalHealth;
-    }
+    }      
 
     public bool isDead()
     {
