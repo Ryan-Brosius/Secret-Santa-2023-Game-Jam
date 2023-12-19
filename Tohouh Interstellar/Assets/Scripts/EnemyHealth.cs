@@ -24,8 +24,9 @@ public class EnemyHealth : MonoBehaviour
         currentHealth = totalHealth;
         healthbarHealth = currentHealth;
         healthbarPercentage = currentHealth / totalHealth;
+        slider = FindAnyObjectByType<Slider>();
         slider.value = HealthPercentage();
-        healthBarUI.SetActive(true);
+        //healthBarUI.SetActive(true);
         StartCoroutine(healthbarTick());
     }
 
@@ -58,6 +59,7 @@ public class EnemyHealth : MonoBehaviour
             healthbarHealth -= difference;
             healthbarPercentage = healthbarHealth / totalHealth;
             yield return new WaitForSeconds(0.01f);
+            //slider.value = healthbarPercentage;
         }
     }
 

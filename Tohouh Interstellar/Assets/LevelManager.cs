@@ -1,19 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class LevelManager : MonoBehaviour
 {
     public List<GameObject> bosses;
     GameObject currentBoss;
     private int currentBossIndex = 0;
+    public Slider healthBar;
 
     private WarningText warningText;
 
     private void Start()
     {
+        healthBar = FindAnyObjectByType<Slider>();
         warningText = GetComponentInChildren<WarningText>();
         StartCoroutine(makeCalls());
+        healthBar.gameObject.SetActive(false);
     }
 
     IEnumerator makeCalls()
@@ -23,6 +28,7 @@ public class LevelManager : MonoBehaviour
             if (currentBoss == null && currentBossIndex < bosses.Count)
             {
                 yield return new WaitForSeconds(3f);
+                healthBar.gameObject.SetActive(false);
 
                 warningText.gameObject.SetActive(true);
                 warningText.spawnWarningScreen();
@@ -43,6 +49,7 @@ public class LevelManager : MonoBehaviour
 
     void spawnBoss(int boss)
     {
+        healthBar.gameObject.SetActive(true);
         currentBoss = Instantiate(bosses[boss], new Vector3(0f, 1.9f), Quaternion.identity);
     }
 }
