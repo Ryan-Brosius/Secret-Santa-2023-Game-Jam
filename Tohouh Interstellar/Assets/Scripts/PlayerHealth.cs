@@ -12,11 +12,16 @@ public class PlayerHealth : MonoBehaviour
     public float freezeTime = 0.2f;
     public CameraShake shake;
 
+    public LevelManager levelManager;
+
+    public GameObject player;
 
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = totalHealth;
+        levelManager = FindAnyObjectByType<LevelManager>();
+        player = GameObject.Find("Player");
     }
 
     private void OnTriggerEnter2D(Collider2D col)
@@ -26,7 +31,8 @@ public class PlayerHealth : MonoBehaviour
             currentHealth -= 1;
             if(currentHealth <= 0)
             {
-                Destroy(gameObject);
+                //Destroy(gameObject);
+                playerDied();
             }
 
             StartCoroutine(takeDamage());
@@ -51,11 +57,11 @@ public class PlayerHealth : MonoBehaviour
 
     IEnumerator damageTick()
     {
-        gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 0, 0);
+        gameObject.GetComponentInParent<SpriteRenderer>().color = new Color(255, 0, 0);
 
         yield return new WaitForSecondsRealtime(colorTickTime);
 
-        gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1);
+        gameObject.GetComponentInParent<SpriteRenderer>().color = new Color(1, 1, 1);
     }
 
     IEnumerator invincibleFrames()
@@ -66,5 +72,11 @@ public class PlayerHealth : MonoBehaviour
 
         canTakeDamage = true;
 
+    }
+
+    void playerDied()
+    {
+        levelManager.playerDied();
+        player.SetActive(false);
     }
 }

@@ -9,6 +9,13 @@ public class PlayerMovement : MonoBehaviour
     float horizontal;
     float vertical;
 
+    Rigidbody2D rb;
+
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -26,6 +33,11 @@ public class PlayerMovement : MonoBehaviour
             reduceSpeed = 0.5f;
         }
 
-        transform.position += new Vector3(horizontal, vertical, 0) * speed * reduceSpeed * Time.deltaTime;
+        Vector2 dir = new Vector2(horizontal, vertical);
+        dir.Normalize();
+
+        rb.velocity = transform.TransformDirection(dir) * speed * reduceSpeed;
+
+        //transform.position += new Vector3(horizontal, vertical, 0) * speed * reduceSpeed * Time.deltaTime;
     }
 }

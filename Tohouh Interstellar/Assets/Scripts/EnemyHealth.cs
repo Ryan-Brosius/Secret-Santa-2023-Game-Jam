@@ -59,7 +59,7 @@ public class EnemyHealth : MonoBehaviour
             healthbarHealth -= difference;
             healthbarPercentage = healthbarHealth / totalHealth;
             yield return new WaitForSeconds(0.01f);
-            //slider.value = healthbarPercentage;
+            slider.value = healthbarPercentage;
         }
     }
 

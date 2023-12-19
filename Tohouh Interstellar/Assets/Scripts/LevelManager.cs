@@ -13,6 +13,9 @@ public class LevelManager : MonoBehaviour
 
     private WarningText warningText;
 
+    private bool playerIsDead = false;
+    public GameObject GameOverCanvas;
+
     private void Start()
     {
         healthBar = FindAnyObjectByType<Slider>();
@@ -23,7 +26,7 @@ public class LevelManager : MonoBehaviour
 
     IEnumerator makeCalls()
     {
-        while (true)
+        while (!playerIsDead)
         {
             if (currentBoss == null && currentBossIndex < bosses.Count)
             {
@@ -51,5 +54,11 @@ public class LevelManager : MonoBehaviour
     {
         healthBar.gameObject.SetActive(true);
         currentBoss = Instantiate(bosses[boss], new Vector3(0f, 1.9f), Quaternion.identity);
+    }
+
+    public void playerDied()
+    {
+        playerIsDead = true;
+        GameOverCanvas.SetActive(true);
     }
 }
