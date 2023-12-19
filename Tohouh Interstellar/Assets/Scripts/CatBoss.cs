@@ -24,7 +24,7 @@ public class CatBoss : MonoBehaviour
     public GameObject triangle2;
 
     public float attackTimer = 10f;
-    private float timer = 10f;
+    private float timer = 9.9f;
 
     private float phaseCooldown = 5f;
     private float phaseTimer = 0f;
@@ -146,7 +146,7 @@ public class CatBoss : MonoBehaviour
             phase3();
         }
 
-        if (phase == Phase.phase3)
+        if (phase == Phase.phase4)
         {
             phase4();
         }
@@ -169,10 +169,15 @@ public class CatBoss : MonoBehaviour
             return;
         }
 
-        if (phase == Phase.phase2 && isDead)
+        if (phase == Phase.phase3 && isDead)
         {
             phase = Phase.phase4;
             return;
+        }
+
+        if (phase == Phase.phase4 && isDead)
+        {
+            Destroy(gameObject);
         }
     }
 

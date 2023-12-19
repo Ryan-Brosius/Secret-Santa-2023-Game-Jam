@@ -92,6 +92,11 @@ public class PlanetBossPhases : MonoBehaviour
             phase = Phase.phase4;
             return;
         }
+
+        if (phase == Phase.phase4 && isDead)
+        {
+            Destroy(gameObject);
+        }
     }
 
     void setUpSpawners()
