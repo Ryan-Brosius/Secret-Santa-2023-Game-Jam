@@ -29,6 +29,8 @@ public class CatBoss : MonoBehaviour
     private float phaseCooldown = 5f;
     private float phaseTimer = 0f;
 
+    private ScoreManager scoreManager;
+
     public enum Phase
     {
         phase1,
@@ -41,6 +43,8 @@ public class CatBoss : MonoBehaviour
 
     private void Start()
     {
+        scoreManager = FindAnyObjectByType<ScoreManager>();
+        scoreManager.startBonus();
         EnemyHealth em = gameObject.GetComponent<EnemyHealth>();
         em.canDie = false;
         em.canTakeDamage = false;
@@ -117,6 +121,7 @@ public class CatBoss : MonoBehaviour
             {
                 previousPhase = phase;
                 phaseTimer = 0f;
+                scoreManager.startBonus();
             }
             return;
         }
@@ -156,8 +161,15 @@ public class CatBoss : MonoBehaviour
     {
         bool isDead = em.isDead();
 
+        if (isDead)
+        {
+            Debug.Log("bruh2");
+            scoreManager.endBonus();
+        }
+
         if (phase == Phase.phase1 && eyePrefabs.Count == 0)
         {
+            scoreManager.endBonus();
             em.canTakeDamage = true;
             phase = Phase.phase2;
             return;

@@ -9,6 +9,13 @@ public class BulletMovement : MonoBehaviour
 
     float y_destroy = 3f;
 
+    ScoreManager scoreManager;
+
+    private void Awake()
+    {
+        scoreManager = FindAnyObjectByType<ScoreManager>();
+    }
+
     private void Update()
     {
         move();
@@ -29,6 +36,7 @@ public class BulletMovement : MonoBehaviour
         if (col.gameObject.TryGetComponent<EnemyHealth>(out EnemyHealth eh))
         {
             eh.damageEnemy(damage);
+            scoreManager.AddScore(20);
             Destroy(gameObject);
         }
     }

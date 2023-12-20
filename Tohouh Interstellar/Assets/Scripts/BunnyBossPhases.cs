@@ -27,9 +27,14 @@ public class BunnyBossPhases : MonoBehaviour
 
     private EnemyHealth em;
 
+    private ScoreManager scoreManager;
+
     // Start is called before the first frame update
     void Start()
     {
+        scoreManager = FindAnyObjectByType<ScoreManager>();
+        scoreManager.startBonus();
+
         setUpSpawners();
         em = GetComponent<EnemyHealth>();
         em.canDie = false;
@@ -79,7 +84,8 @@ public class BunnyBossPhases : MonoBehaviour
             if (phaseTimer >= phaseCooldown) {
                 previousPhase = phase;
                 phaseTimer = 0f;
-             }
+                scoreManager.startBonus();
+            }
             return;
         }
 
@@ -107,6 +113,11 @@ public class BunnyBossPhases : MonoBehaviour
     void determinePhase()
     {
         bool isDead = em.isDead();
+
+        if (isDead)
+        {
+            scoreManager.endBonus();
+        }
 
         if (phase == Phase.phase1 && isDead)
         {

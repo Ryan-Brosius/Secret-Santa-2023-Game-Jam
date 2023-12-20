@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlanetBossPhases : MonoBehaviour
@@ -24,9 +25,14 @@ public class PlanetBossPhases : MonoBehaviour
 
     private EnemyHealth em;
 
+    private ScoreManager scoreManager;
+
     // Start is called before the first frame update
     void Start()
     {
+        scoreManager = FindAnyObjectByType<ScoreManager>();
+        scoreManager.startBonus();
+
         setUpSpawners();
         em = GetComponent<EnemyHealth>();
         em.canDie = false;
@@ -46,6 +52,7 @@ public class PlanetBossPhases : MonoBehaviour
             {
                 previousPhase = phase;
                 phaseTimer = 0f;
+                scoreManager.startBonus();
             }
             return;
         }
@@ -74,6 +81,11 @@ public class PlanetBossPhases : MonoBehaviour
     void determinePhase()
     {
         bool isDead = em.isDead();
+
+        if (isDead)
+        {
+            scoreManager.endBonus();
+        }
 
         if (phase == Phase.phase1 && isDead)
         {
