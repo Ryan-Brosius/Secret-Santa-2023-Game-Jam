@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -11,6 +12,10 @@ public class PlayerHealth : MonoBehaviour
     public float invincibleFrameTime = 0.5f;
     public float freezeTime = 0.2f;
     public CameraShake shake;
+
+    public Image[] hearts;
+    public Sprite fullHearts;
+    public Sprite emptyHeart;
 
     public LevelManager levelManager;
 
@@ -36,6 +41,7 @@ public class PlayerHealth : MonoBehaviour
             }
 
             StartCoroutine(takeDamage());
+            hearts[(int)currentHealth].sprite = emptyHeart;
             StartCoroutine(invincibleFrames());
         }
     }

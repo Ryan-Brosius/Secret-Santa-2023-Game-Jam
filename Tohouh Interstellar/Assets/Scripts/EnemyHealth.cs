@@ -86,7 +86,7 @@ public class EnemyHealth : MonoBehaviour
     public void restoreAllHealth()
     {
         currentHealth = totalHealth;
-    }      
+    }
 
     public bool isDead()
     {
