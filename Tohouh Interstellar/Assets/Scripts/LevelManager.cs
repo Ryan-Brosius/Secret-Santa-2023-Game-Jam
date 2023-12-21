@@ -16,7 +16,6 @@ public class LevelManager : MonoBehaviour
     private bool playerIsDead = false;
     public GameObject GameOverCanvas;
 
-    public ScoreManager scoreManager;
 
     private void Start()
     {
@@ -24,7 +23,6 @@ public class LevelManager : MonoBehaviour
         warningText = GetComponentInChildren<WarningText>();
         StartCoroutine(makeCalls());
         healthBar.gameObject.SetActive(false);
-        scoreManager = FindAnyObjectByType<ScoreManager>();
     }
 
     IEnumerator makeCalls()
@@ -58,7 +56,6 @@ public class LevelManager : MonoBehaviour
 
     void spawnBoss(int boss)
     {
-        scoreManager.startBonus();
         healthBar.gameObject.SetActive(true);
         currentBoss = Instantiate(bosses[boss], new Vector3(0f, 1.9f), Quaternion.identity);
     }

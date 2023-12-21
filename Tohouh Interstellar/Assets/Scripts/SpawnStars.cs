@@ -6,14 +6,20 @@ public class SpawnStars : MonoBehaviour
 {
     [SerializeField]
     List<GameObject> starPrefabs;
+    [SerializeField]
     int count = 200;
 
+    [SerializeField]
     float n_x = -1.6f;
+    [SerializeField]
     float x = 1.6f;
 
+    [SerializeField]
     float n_y = -2.75f;
+    [SerializeField]
     float y = 2.75f;
 
+    [SerializeField]
     float border_y;
 
     float pixelSize = .01f;
