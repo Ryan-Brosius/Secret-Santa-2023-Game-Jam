@@ -163,7 +163,6 @@ public class CatBoss : MonoBehaviour
 
         if (isDead)
         {
-            Debug.Log("bruh2");
             scoreManager.endBonus();
         }
 

@@ -23,6 +23,8 @@ public class LevelManager : MonoBehaviour
         warningText = GetComponentInChildren<WarningText>();
         StartCoroutine(makeCalls());
         healthBar.gameObject.SetActive(false);
+
+        currentBossIndex = PlayerPrefs.GetInt("Boss Index");
     }
 
     IEnumerator makeCalls()

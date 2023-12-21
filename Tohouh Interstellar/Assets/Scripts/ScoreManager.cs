@@ -14,13 +14,25 @@ public class ScoreManager : MonoBehaviour
     public int currentBonus = 0;
     private float tickRate = .1f;
 
+    private bool practice;
+
+    public bool newHighScore = false;
+
+    private void Start()
+    {
+        practice = (PlayerPrefs.GetInt("Practice") == 1);
+        highScore = PlayerPrefs.GetInt("High Score");
+    }
+
     public void AddScore(int num)
     {
         score += num;
 
-        if (score > highScore)
+        if (score > highScore && !practice)
         {
+            newHighScore = true;
             highScore = score;
+            PlayerPrefs.SetInt("High Score", highScore);
         }
     }
 

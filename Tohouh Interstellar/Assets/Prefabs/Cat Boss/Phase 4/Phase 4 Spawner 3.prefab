@@ -45,10 +45,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 1040614389382490475, guid: a8e3d50f61fd121469c5139927191aa5, type: 3}
-  firingRate: 0.1
+  firingRate: 0.15
   bulletsPerSpawn: 8
   rotation: 0.2
-  bulletSpeed: 1.5
+  bulletSpeed: 1.4
   isOn: 0
   oscillateFiringRateBool: 0
   oscilationRange: {x: 0, y: 0.05}

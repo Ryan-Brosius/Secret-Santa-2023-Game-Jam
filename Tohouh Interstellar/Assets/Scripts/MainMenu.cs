@@ -22,6 +22,8 @@ public class MainMenu : MonoBehaviour
     public GameObject creditsBackMenuButton;
     public GameObject MainCreditsButton;
 
+    public LevelLoader levelLoader;
+
     private void Update()
     {
         setDefaultColor();
@@ -70,5 +72,33 @@ public class MainMenu : MonoBehaviour
     public void QuitButton()
     {
         Application.Quit();
+    }
+
+    public void loadGameStart()
+    {
+        PlayerPrefs.SetInt("Practice", 0);
+        PlayerPrefs.SetInt("Boss Index", 0);
+        levelLoader.loadScene("Game Scene");
+    }
+
+    public void loadPracticeCat()
+    {
+        PlayerPrefs.SetInt("Practice", 1);
+        PlayerPrefs.SetInt("Boss Index", 0);
+        levelLoader.loadScene("Game Scene");
+    }
+
+    public void loadPracticeBunnygirl()
+    {
+        PlayerPrefs.SetInt("Practice", 1);
+        PlayerPrefs.SetInt("Boss Index", 1);
+        levelLoader.loadScene("Game Scene");
+    }
+
+    public void loadPracticePlanet()
+    {
+        PlayerPrefs.SetInt("Practice", 1);
+        PlayerPrefs.SetInt("Boss Index", 2);
+        levelLoader.loadScene("Game Scene");
     }
 }
