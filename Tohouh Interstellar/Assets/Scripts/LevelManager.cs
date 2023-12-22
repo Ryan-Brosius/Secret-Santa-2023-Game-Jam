@@ -18,6 +18,8 @@ public class LevelManager : MonoBehaviour
 
     public PlayerHealth playerHealth;
 
+    public GameObject gameWinScreen;
+
     private void Start()
     {
         healthBar = FindAnyObjectByType<Slider>();
@@ -32,10 +34,25 @@ public class LevelManager : MonoBehaviour
 
     IEnumerator makeCalls()
     {
+        if (currentBossIndex == bosses.Count)
+        {
+            yield return new WaitForSeconds(3f);
+            gameWinScreen.SetActive(true);
+
+        }
+
         while (!playerIsDead)
         {
-            if (currentBoss == null && currentBossIndex < bosses.Count)
+            if (currentBoss == null && currentBossIndex <= bosses.Count)
             {
+                if (currentBossIndex == bosses.Count)
+                {
+                    yield return new WaitForSeconds(3f);
+                    gameWinScreen.SetActive(true);
+                    break;
+
+                }
+
                 //Boss is dead
                 //scoreManager.endBonus();
                 playerHealth.restoreAllHealth();
