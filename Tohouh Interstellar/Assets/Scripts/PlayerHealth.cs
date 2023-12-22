@@ -85,4 +85,13 @@ public class PlayerHealth : MonoBehaviour
         levelManager.playerDied();
         player.SetActive(false);
     }
+
+    public void restoreAllHealth()
+    {
+        currentHealth = totalHealth;
+        for (int i = 0; i < hearts.Length; i++)
+        {
+            hearts[i].sprite = fullHearts;
+        }
+    }
 }

@@ -77,7 +77,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 97
+  m_SortingOrder: 98
   m_Sprite: {fileID: 255251641, guid: 5838d26434869b143a28933e768712b8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -153,6 +153,9 @@ MonoBehaviour:
   tickColor: {r: 0.70980394, g: 0.25490198, b: 0.19215687, a: 1}
   canTakeDamage: 1
   canDie: 1
+  healthBarUI: {fileID: 0}
+  slider: {fileID: 0}
+  test: 0
 --- !u!60 &713166383301898352
 PolygonCollider2D:
   m_ObjectHideFlags: 0

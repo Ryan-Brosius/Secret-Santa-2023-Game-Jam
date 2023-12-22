@@ -99,11 +99,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71aaec3183f44414aadf79be9a1822dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalHealth: 200
+  totalHealth: 300
   colorTickTime: 0.1
   tickColor: {r: 0.18422927, g: 0.5660378, b: 0.21717238, a: 1}
   canTakeDamage: 1
   canDie: 1
+  healthBarUI: {fileID: 0}
+  slider: {fileID: 0}
+  test: 0
 --- !u!58 &9045449886629499770
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -16,6 +16,7 @@ public class LevelManager : MonoBehaviour
     private bool playerIsDead = false;
     public GameObject GameOverCanvas;
 
+    public PlayerHealth playerHealth;
 
     private void Start()
     {
@@ -25,6 +26,8 @@ public class LevelManager : MonoBehaviour
         healthBar.gameObject.SetActive(false);
 
         currentBossIndex = PlayerPrefs.GetInt("Boss Index");
+
+        //playerHealth = FindAnyObjectByType<PlayerHealth>();
     }
 
     IEnumerator makeCalls()
@@ -35,6 +38,7 @@ public class LevelManager : MonoBehaviour
             {
                 //Boss is dead
                 //scoreManager.endBonus();
+                playerHealth.restoreAllHealth();
 
                 yield return new WaitForSeconds(3f);
                 healthBar.gameObject.SetActive(false);
